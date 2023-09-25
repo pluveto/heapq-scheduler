@@ -8,6 +8,7 @@ from heapq_scheduler.scheduler_protocol import SchedulerProtocol
 
 
 _TaskFn = Callable[[], None]
+_TaskCallback = Callable[[_TaskFn], None]
 _QueueItemTuple = Tuple[float, int, _TaskFn, float, int]
 
 _off_next_run = 0
@@ -44,9 +45,6 @@ class _QueueItem:
     def __str__(self) -> str:
         time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.next_run))
         return f"_QueueItem(next_run='{time_str}', period={self.period}, fn_id={self.fn_id})"
-
-
-_TaskCallback = Callable[[_TaskFn], None]
 
 
 class Scheduler(SchedulerProtocol):

@@ -1,23 +1,38 @@
-from typing import Callable, Protocol
+from abc import abstractmethod
+from typing import Callable, Optional, Protocol
+
+
+_TaskFn = Callable[[], None]
+_TaskCallback = Callable[[_TaskFn], None]
 
 
 class SchedulerProtocol(Protocol):
+    @abstractmethod
     def schedule(
         self,
-        fn: Callable[[], None],
-        interval: float,
-        run_immidiately: bool = False,
+        fn: _TaskFn,
+        period: float,
+        immidiately: bool = False,
+        life: int = -1,
     ) -> None:
         ...
 
-    def cancel(self, fn: Callable[[], None]) -> None:
+    @abstractmethod
+    def cancel(self, fn: _TaskFn, on_cancelled: Optional[_TaskCallback] = None) -> None:
         ...
 
+    @abstractmethod
     def start(self) -> None:
         ...
 
-    def stop(self) -> None:
+    @abstractmethod
+    def join(self) -> None:
         ...
 
+    @abstractmethod
+    def stop(self, callback: Optional[_TaskFn] = None) -> None:
+        ...
+
+    @abstractmethod
     def run(self) -> None:
         ...
