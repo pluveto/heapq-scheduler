@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-APP_DIR = pyproject  # TODO: Replace with the name of your app directory.
+APP_DIR = heapq_scheduler
 
 export PYTHONPATH
 
@@ -45,9 +45,9 @@ pylint:
 
 flake8:
 	# Error on syntax errors or undefined names.
-	flake8 . --select=E9,F63,F7,F82 --show-source
+	flake8 $(APP_DIR) --select=E9,F63,F7,F82 --show-source
 	# Warn on everything else.
-	flake8 . --exit-zero
+	# flake8 . --exit-zero
 
 lint: pylint flake8
 
@@ -65,4 +65,4 @@ unit:
 test: unit
 
 run:
-	cd $(APP_DIR) && python ./pyproject.py World
+	cd $(APP_DIR) && python ./heapq_scheduler.py World

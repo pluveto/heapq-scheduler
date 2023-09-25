@@ -1,36 +1,32 @@
 # Usage
 
-
 ```sh
-$ cd PATH_TO_REPO
-$ source venv/bin/activate
+cd PATH_TO_REPO
+source venv/bin/activate
 ```
-
 
 ## View available make commands
 
 ```sh
-$ make help
+make help
 ```
-
 
 ## Run
 
 Run application.
 
 ```sh
-$ make run
+make run
 ```
 
 See [Development](development.md) for commands around code quality.
-
 
 ## Run Python commands
 
 _TODO: Replace with your app directory._
 
 ```sh
-$ cd pyproject
+cd heapq_scheduler
 ```
 
 _TODO: Add to this section with commands based on specifics of your project._
@@ -43,5 +39,5 @@ baz?
 ```
 
 ```sh
-$ foo/bar.py --help
+foo/bar.py --help
 ```

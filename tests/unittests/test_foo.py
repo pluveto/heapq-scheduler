@@ -1,7 +1,7 @@
 """
 Test foo module.
 """
-from pyproject.foo import greet
+from heapq_scheduler.foo import greet
 
 
 def test_greet():

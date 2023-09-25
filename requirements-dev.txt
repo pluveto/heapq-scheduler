@@ -1,7 +1,7 @@
 black~=22.1
 isort~=5.10
 
-flake8~=4.0
+flake8~=6.1
 pylint~=2.12
 pylint-exit~=1.2
 

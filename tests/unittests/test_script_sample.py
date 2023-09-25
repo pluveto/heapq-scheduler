@@ -1,7 +1,7 @@
 """
 Test script sample module.
 """
-from pyproject.script_sample import bar, foo
+from heapq_scheduler.script_sample import bar, foo
 
 
 def test_foo():

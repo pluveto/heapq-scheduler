@@ -5,7 +5,7 @@ _You can delete this template-notes directory in your copy of this project._
 The structure of this project is based on:
 
 - Conventions in the Python community.
-- What I have picked up from other developers I have worked with. 
+- What I have picked up from other developers I have worked with.
 - Some of my own preferences which I've evolved over time.
 
 This repo is a good starting point for new projects, plus I can use it as a reference for existing projects where I want a base structure reminder, or I need to copy a text fragment which is very reusable with a bit of tweaking.
@@ -20,28 +20,27 @@ For a Node quickstart template, see [MichaelCurrin/node-project-template](https:
 
 - [Add VS Code boilerplate](#add-vs-code-boilerplate)
 - [Use this base project](#use-this-base-project)
-    - [Get a local copy of the base project](#get-a-local-copy-of-the-base-project)
-    - [Replace the README](#replace-the-readme)
-    - [Complete project name references](#complete-project-name-references)
-        - [Rename module](#rename-module)
-        - [Setup main script](#setup-main-script)
-    - [Clean-up](#clean-up)
+  - [Get a local copy of the base project](#get-a-local-copy-of-the-base-project)
+  - [Replace the README](#replace-the-readme)
+  - [Complete project name references](#complete-project-name-references)
+    - [Rename module](#rename-module)
+    - [Setup main script](#setup-main-script)
+  - [Clean-up](#clean-up)
 - [Explanations and notes](#explanations-and-notes)
-    - [VSCode Settings](#vscode-settings)
-        - [Settings](#settings)
-        - [Launch](#launch)
-        - [Dotenv](#dotenv)
+  - [VSCode Settings](#vscode-settings)
+    - [Settings](#settings)
+    - [Launch](#launch)
+    - [Dotenv](#dotenv)
 - [Naming conventions](#naming-conventions)
 - [Git Ignore](#git-ignore)
-    - [Data files](#data-files)
+  - [Data files](#data-files)
 - [Badges](#badges)
-    - [Rules for static text badges](#rules-for-static-text-badges)
-    - [Examples](#examples)
-    - [Placement](#placement)
+  - [Rules for static text badges](#rules-for-static-text-badges)
+  - [Examples](#examples)
+  - [Placement](#placement)
 - [Repo admin](#repo-admin)
-    - [Git ignore](#git-ignore)
-    - [Change formatter](#change-formatter)
-
+  - [Git ignore](#git-ignore)
+  - [Change formatter](#change-formatter)
 
 ## Add VS Code boilerplate
 
@@ -54,7 +53,7 @@ Follow this section to improve code linting and code running in VS Code. This co
 (Despite these settings, the Run button in the top right of the IDE does not start in a virtual environment unfortunately. That's okay as Debug can also run but is more powerful.)
 
 ```sh
-$ cd PATH_TO_PROJECT
+cd PATH_TO_PROJECT
 ```
 
 Then run the following in your terminal to copy the scripts from Github in your project. _WARNING: This it will **overwrite** any existing files._
@@ -69,7 +68,6 @@ curl "$BASE_URL/.env" > .env
 
 Edit the local files and complete the _TODO_ items in them.
 
-
 ## Use this base project
 
 Follow this section fo instructions on how to copy of this entire repo as a base project and then customize it.
@@ -80,17 +78,15 @@ Follow this section fo instructions on how to copy of this entire repo as a base
 2. Create a local clone of your repo.
 3. Navigate to your repo directory.
 
-
 ### Replace the README
 
 Note the force flag to overwrite.
 
 ```sh
-$ git mv -f README.template.md README.md
+git mv -f README.template.md README.md
 ```
 
 Then customize the new `README.md` as you like.
-
 
 ### Complete project name references
 
@@ -99,34 +95,32 @@ Rename the Python project directory and script to your custom name.
 For example we use the name `myprojectname/myprojectname.py` - both names are similar. This typically does not have any underscores in it and if you should avoid using a hyphen otherwise this package folder can't be used in an import statement outside your project.
 
 ```sh
-$ cd PATH_TO_REPO
+cd PATH_TO_REPO
 ```
 
 #### Rename module
 
 ```sh
-$ git mv pyproject myprojectname
-$ cd myprojectname
+git mv heapq_scheduler myprojectname
+cd myprojectname
 ```
 
 #### Setup main script
 
 ```sh
-$ git rm pyproject.py
-$ touch myprojectname.py
+git rm heapq_scheduler.py
+touch myprojectname.py
 ```
 
 Go through the _TODO_ items in the repo and complete them. See the rest is README if you don't know what a file is for.
 
 <!--_FIXME: Is there is a way to use find, grep etc. to replace mentions across all files without going detailed? And on directory name. Also note renaming local repo folder._-->
 
-
 ### Clean-up
 
 If you don't need directories in project directory, delete them. They contain `.gitkeep` files - once deleted those changes must be added to version control.
 
 Delete [LICENSE](/LICENSE) and replace it with your own.
-
 
 ## Explanations and notes
 
@@ -200,26 +194,24 @@ Recommendations for using the project's directories (paths given relative to rep
 Directory 			          | Description
 ---       			          | ---
 **[bin/](/bin/)** 		          | Executable files. Usually a bash script, such as to run a python script within an environment, run a curl command or pipe data in or out of sqlite.
-**[pyproject/](/pyproject/)**   	  | Main application scripts such as a server or command-line scripts should live in the top project directory, in this case named `pyproject`. These should preferably not import from each other but can import from the `lib` module.
-**[pyproject/lib/](/pyproject/lib/)**     | Library of common scripts. These should be independent of each other (i.e. do not import from each other), to reduce circular dependencies. They should also not depend on an `__init__.py` script. Any common logic such as setting up a path to the app directory should be setup in the `__init__.py` script.
-**[pyproject/etc/](/pyproject/etc/)**     | Configuration files. For files such as `.json`, `.yml`, `.ini` or `.conf`.
-**[pyproject/utils/](/pyproject/utils/)** | Utilities. Standalone scripts which may use the `lib` module. These `utils` scripts should also be independent from each other should. If you find when developing that there is any logic duplicated across `utils` scripts, then that should be moved to a `lib` script and imported from `lib` into `utils` scripts.
-**[pyproject/var/](/pyproject/var/)**     | Variable content such as a database file or text/CSV/JSON files to be used for input or which are outputted by a script. No scripts should live in the this directory.
+**[heapq_scheduler/](/heapq_scheduler/)**   	  | Main application scripts such as a server or command-line scripts should live in the top project directory, in this case named `heapq_scheduler`. These should preferably not import from each other but can import from the `lib` module.
+**[heapq_scheduler/lib/](/heapq_scheduler/lib/)**     | Library of common scripts. These should be independent of each other (i.e. do not import from each other), to reduce circular dependencies. They should also not depend on an `__init__.py` script. Any common logic such as setting up a path to the app directory should be setup in the `__init__.py` script.
+**[heapq_scheduler/etc/](/heapq_scheduler/etc/)**     | Configuration files. For files such as `.json`, `.yml`, `.ini` or `.conf`.
+**[heapq_scheduler/utils/](/heapq_scheduler/utils/)** | Utilities. Standalone scripts which may use the `lib` module. These `utils` scripts should also be independent from each other should. If you find when developing that there is any logic duplicated across `utils` scripts, then that should be moved to a `lib` script and imported from `lib` into `utils` scripts.
+**[heapq_scheduler/var/](/heapq_scheduler/var/)**     | Variable content such as a database file or text/CSV/JSON files to be used for input or which are outputted by a script. No scripts should live in the this directory.
 
 Benefits I found of this approach:
 
 - I find the logical grouping makes makes writing and finding code easier. e.g. If a script is intended as a library, it goes in `lib` with similar scripts.
 - It means that it is easy to switch between my projects as the layout is familiar.
 - Imports are easier
-    * Imports are easy to think about and trace. You can see the role of a script based on what module it is in.
-    * Scripts are more independent and therefore more robust.
-    * It's easier to avoid circular imports and complicated imports (e.g. where a script uses a script uses script in a deep or haphazard structure).
-
+  - Imports are easy to think about and trace. You can see the role of a script based on what module it is in.
+  - Scripts are more independent and therefore more robust.
+  - It's easier to avoid circular imports and complicated imports (e.g. where a script uses a script uses script in a deep or haphazard structure).
 
 ## Git Ignore
 
 Optional additions for the [.gitignore](/.gitignore) file.
-
 
 ### Data files
 
@@ -237,8 +229,8 @@ Or ignore CSV files in specific paths such as project variable files directory. 
 
 ```
 # Local CSVs and their lock files (if they are open in an editor).
-pyproject/var/*.csv
-pyproject/var/.~lock.*.csv#
+heapq_scheduler/var/*.csv
+heapq_scheduler/var/.~lock.*.csv#
 ```
 
 ## Badges
@@ -290,7 +282,6 @@ To show badges side by side, separate them with spaces.
 
 To lay them out them vertically, put them one line under each other. No blank line is needed. Note that normally markdown normally needs an empty line between sentences to create a line break, but that does not apply here. Except placing the badge on a newline directly below a sentence will still output as all one line.
 
-
 ## Repo admin
 
 ### Git ignore
@@ -316,20 +307,26 @@ Instead of using _Black_ for formatting, you can configure the project to use [A
     - Remove `black`.
     - Add `autopep8`.
 2. Uninstall Black.
+
     ```sh
-    $ pip uninstall black
+    pip uninstall black
     ```
+
 3. Install.
+
     ```sh
-    $ make install-dev
+    make install-dev
     ```
+
 4. Update targets in [Makefile](/Makefile).
     - Remove/update the format commands to use `autopep8`. e.g.
+
         ```make
         fmt:
-            autopep8 --in-place --recursive pyproject/
+            autopep8 --in-place --recursive heapq_scheduler/
         fmt-check:
-            autopep8 --diff --recursive pyproject/
+            autopep8 --diff --recursive heapq_scheduler/
         ```
+
 5. Update [settings.json](/.vscode/settings.json).
     - Change `python.formatting.provider` from `"black"` to `"autopep8"`.

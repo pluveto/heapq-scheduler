@@ -1,15 +1,12 @@
 {
-  "_NOTE": "Replace pyproject with your package folder name",
-
-  // "terminal.integrated.cwd": "pyproject",
-  "code-runner.cwd": "pyproject",
-
+  "_NOTE": "Replace heapq_scheduler with your package folder name",
+  // "terminal.integrated.cwd": "heapq_scheduler",
+  "code-runner.cwd": "heapq_scheduler",
   "python.defaultInterpreterPath": "venv/bin/python",
-
-  "editor.rulers": [79],
-
+  "editor.rulers": [
+    79
+  ],
   "python.formatting.provider": "black",
-
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true
