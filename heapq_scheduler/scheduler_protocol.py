@@ -12,7 +12,7 @@ class SchedulerProtocol(Protocol):
         self,
         fn: _TaskFn,
         period: float,
-        immidiately: bool = False,
+        immediately: bool = False,
         life: int = -1,
     ) -> None:
         ...

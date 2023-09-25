@@ -65,11 +65,11 @@ class Scheduler(SchedulerProtocol):
         self,
         fn: Callable[[], None],
         period: float,
-        immidiately: bool = False,
+        immediately: bool = False,
         life: int = -1,
     ) -> None:
         ts = time.time()
-        next_run = ts if immidiately else ts + period
+        next_run = ts if immediately else ts + period
         item = _QueueItem(next_run, fn, period, life)
         self._schedule(item)
 
