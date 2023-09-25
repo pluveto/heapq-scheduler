@@ -92,7 +92,7 @@ class Scheduler(SchedulerProtocol):
         def default_callback(task: _TaskFn) -> None:
             pass
 
-        logging.debug(f"set cancel {fn}")
+        self._logger.debug(f"set cancel {fn}")
         self._cancel_mark[fn] = on_cancelled or default_callback
 
     def start(self) -> None:
@@ -113,7 +113,7 @@ class Scheduler(SchedulerProtocol):
         def default_callback() -> None:
             pass
 
-        logging.debug("set stop")
+        self._logger.debug("set stop")
         self._stop = callback or default_callback
 
     def _next(self) -> _QueueItemTuple:
@@ -141,7 +141,7 @@ class Scheduler(SchedulerProtocol):
             del self._cancel_mark[item.fn]
             return False
 
-        logging.debug(f"to call {item}")
+        self._logger.debug(f"to call {item}")
         dt = item.next_run - time.time()
         if dt > 0:
             self._schedule(item)
