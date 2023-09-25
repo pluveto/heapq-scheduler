@@ -92,4 +92,4 @@ To contribute to the development of the Scheduler library, follow these steps:
 
 ## License
 
-Released under the [MIT](/LICENSE) license by [Your Name](https://github.com/your-username)
+Released under the [MIT](/LICENSE) license by [Pluveto](https://github.com/pluveto)
